@@ -10,6 +10,7 @@ public class UserAccount {
     private String email;
     private String password;
     private String account_status;
+    private String roleId;
     private Date date;
 
     private UserAccount() {
@@ -20,6 +21,7 @@ public class UserAccount {
         this.date=builder.date;
         this.email=builder.email;
         this.password=builder.password;
+        this.roleId = builder.role;
     }
 
     public String getEmail() {
@@ -28,6 +30,10 @@ public class UserAccount {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getRoleId() {
+        return roleId;
     }
 
     public String getAccount_status() {
@@ -52,6 +58,7 @@ public class UserAccount {
         private String email;
         private String password;
         private String account_status;
+        private String role;
         private Date date;
 
         public Builder(String email){
@@ -59,6 +66,10 @@ public class UserAccount {
         }
         public Builder buildPassword(String password){
             this.password=password;
+            return this;
+        }
+        public Builder buildRole(String role){
+            this.role = role;
             return this;
         }
         public Builder buildAccountStatus(String account_status){

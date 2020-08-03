@@ -151,7 +151,6 @@ public class PictureController implements Icontroller<Picture, String> {
         byte[] byteArrayPicture = Base64.getDecoder().decode(picture);
         String stringPicture = Base64.getEncoder().encodeToString(byteArrayPicture);
         return stringPicture;
-
     }
 
     /****

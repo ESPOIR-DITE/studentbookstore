@@ -36,7 +36,7 @@ public class UserPostController implements Icontroller<UserPost,String> {
         if (bookPost!=null){
             Book book = bookService.read(bookPost.getBook_id());
             if(book.getTitle()!=null){
-                MGSample.sendSimpleMessage(userPost.getEmail(),002,book.getTitle());
+                MGSample.sendSimpleMessage(userPost.getEmail(),002,book.getTitle(),"");
             }
         }
         return userPostService.create(userPost);

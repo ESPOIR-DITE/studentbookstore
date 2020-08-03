@@ -16,5 +16,8 @@ public class UserAccountFactory {
     public static UserAccount getUserAccountUpdateStatus(String email,String password,String status){
         return new UserAccount.Builder(email).buildAccountStatus(status).buildDate(CurrentData.getCurrentTime()).buildPassword(password).build();
     }
+    public static UserAccount getUserAccountUpdateRole(String email,String password,String status,String roleId){
+        return new UserAccount.Builder(email).buildAccountStatus(status).buildDate(CurrentData.getCurrentTime()).buildPassword(password).buildRole(roleId).build();
+    }
 
 }

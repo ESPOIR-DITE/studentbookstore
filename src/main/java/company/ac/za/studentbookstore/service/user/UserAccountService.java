@@ -73,4 +73,13 @@ public class UserAccountService implements IService<UserAccount,String> {
         }
         return null;
     }
+
+    public UserAccount readWithEmail(String email){
+        for(UserAccount userAccount: readAll()){
+            if(userAccount.getEmail().equals(email)){
+                return userAccount;
+            }
+        }
+        return null;
+    }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("sts/users/")
+@RequestMapping("sts/user_account/")
 public class UserAccountController {
     @Autowired
     UserAccountService userAccountService;
@@ -35,6 +35,12 @@ public class UserAccountController {
     public UserAccount readwithcode(@RequestParam("id") String id){
         return userAccountService.readWithCode(id);
     }
+
+    @GetMapping("readwithemail")
+    public UserAccount readWithEmail(@RequestParam("id") String id){
+        return userAccountService.readWithEmail(id);
+    }
+
     @PostMapping("update")
     public UserAccount update(@RequestBody UserAccount userAccount){
         return userAccountService.update(userAccount);
