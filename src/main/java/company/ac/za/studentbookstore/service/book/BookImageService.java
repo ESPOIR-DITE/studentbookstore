@@ -6,6 +6,7 @@ import company.ac.za.studentbookstore.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,9 +28,11 @@ public class BookImageService implements IService<BookImage,String> {
 
     @Override
     public BookImage delete(BookImage bookImage) {
-        if(checkIf(bookImage.getBook_id())!=null){
+        BookImage bookImage1=read(bookImage.getImage_id()); //checking if it exists in the database
+        if(bookImage1!=null) {
             bookImageRepository.delete(bookImage);
-            return bookImage;
+            //System.out.println(bookImage);
+            return bookImage1;
         }
         return null;
     }
@@ -48,6 +51,13 @@ public class BookImageService implements IService<BookImage,String> {
         }
         return null;
     }
+    public BookImage readWithBookId(String id){
+        for(BookImage bookImage:readAll()){
+            if(bookImage.getBook_id().equals(id)){
+                return bookImage;
+            }
+        }return null;
+    }
 
     @Override
     public List<BookImage> readAll() {
@@ -56,5 +66,14 @@ public class BookImageService implements IService<BookImage,String> {
     public BookImage checkIf(String id){
         Optional<BookImage>result =bookImageRepository.findById(id);
         return result.orElse(null);
+    }
+    public List<BookImage> readAllOf(String id){
+        List<BookImage> bookImages=new ArrayList<>();
+        for(BookImage bookImage:readAll()){
+            if(bookImage.getBook_id().equals(id)){
+                bookImages.add(bookImage);
+            }
+        }
+        return bookImages;
     }
 }

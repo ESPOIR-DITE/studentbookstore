@@ -5,7 +5,7 @@ import company.ac.za.studentbookstore.util.MyIdGenerator;
 
 public class BookFactory
 {
-    public static Book getBook(String title,String language,String edition,double price)
+    public static Book getBook(String title,String language,String edition,double price,String author)
     {
         return new Book.Builder()
                 .buildedition(edition)
@@ -13,6 +13,7 @@ public class BookFactory
                 .buildTitle(title)
                 .buildLanguage(language)
                 .Price(price)
+                .buildAuthor(author)
                 .build();
     }
 

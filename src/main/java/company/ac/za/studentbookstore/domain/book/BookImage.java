@@ -5,8 +5,8 @@ import javax.persistence.Id;
 @Entity
 public class BookImage {
     @Id
-    private String book_id;
     private String image_id;
+    private String book_id;
     private String description;
 
     private BookImage(){}

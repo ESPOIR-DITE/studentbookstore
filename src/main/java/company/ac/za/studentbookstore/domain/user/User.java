@@ -11,7 +11,7 @@ public class User {
     private String surname;
     private String phoneNumber;
 
-    private User(){}// default constructor of the company.ac.za.studentbookstore.repository.user class only
+    private User(){}// default constructor of the company.ac.za.studentbookstore.repository.company.ac.za.studentbookstore.service.company.ac.za.studentbookstore.controller.user class only
 
     public String getEmail() {
         return email;

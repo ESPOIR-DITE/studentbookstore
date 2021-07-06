@@ -16,25 +16,16 @@ public class BookDepartment {
         return book_Id;
     }
 
-//    public void setBook_Id(String book_Id) {
-//        this.book_Id = book_Id;
-//    }
 
     public String getDepartment_Id() {
         return department_Id;
     }
 
-//    public void setDepartment_Id(String department_Id) {
-//        this.department_Id = department_Id;
-//    }
 
     public String getDescription() {
         return description;
     }
 
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
     public BookDepartment(Builder builder)
     {
         this.book_Id = builder.book_Id;

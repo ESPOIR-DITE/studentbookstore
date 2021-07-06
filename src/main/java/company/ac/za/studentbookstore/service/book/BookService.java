@@ -25,10 +25,10 @@ public class BookService implements IService<Book,String> {
     }
     @Override
     public Book delete(Book book) {
-        Optional<Book> result=bookRepository.findById(book.getId());
-        if (result.get()!=null){
+       Book book1 = read(book.getId());
+        if (book1!=null){
             bookRepository.delete(book);
-            return result.get();
+            return book;
         }
         return null;
     }

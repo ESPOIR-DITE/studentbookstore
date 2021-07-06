@@ -19,14 +19,15 @@ public class BookController implements Icontroller<Book,String> {
     @PostMapping("create")
     @Override
     public Book create(@RequestBody Book book) {
-        Book book1=BookFactory.getBook(book.getTitle(),book.getLanguage(),book.getEdition(),book.getPrice());
-        System.out.println(book1.toString());
+        Book book1=BookFactory.getBook(book.getTitle(),book.getLanguage(),book.getEdition(),book.getPrice(),book.getAuthor());
+        //System.out.println(book1.toString());
         return bookService.create(book1);
     }
 
-    @GetMapping("delete")
+    @PostMapping("delete")
     @Override
     public Book delete(@RequestBody Book book) {
+        //System.out.println(book+" the book");
         return bookService.delete(book);
     }
 

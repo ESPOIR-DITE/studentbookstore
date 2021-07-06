@@ -11,8 +11,13 @@ public class Book {
     private String language;
     private String edition;
     private double price;
+    private String author;
 
     private Book(){}// default constructor for the company.ac.za.studentbookstore.repository.book class only
+
+    public String getAuthor() {
+        return author;
+    }
 
     public String getId() {
         return id;
@@ -37,6 +42,7 @@ public class Book {
         this.language = builder.language;
         this.edition = builder.edition;
         this.price = builder.price;
+        this.author=builder.author;
     }
 
     public static class Builder{
@@ -45,6 +51,7 @@ public class Book {
         private String language;
         private String edition;
         private double price;
+        private String author;
 
         public Builder Id(String id){
             this.id=id;
@@ -66,6 +73,10 @@ public class Book {
             this.price=price;
             return this;
         }
+        public Builder buildAuthor(String author){
+            this.author=author;
+            return this;
+        }
         public Book build(){
             return new Book(this);
         }
@@ -73,7 +84,13 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" + "id='" + id + '\'' + ", title='" + title +
-                '\'' + ", language='" + language + '\'' + ", edition='" + edition + '\'' + ", price=" + price + '}';
+        return "Book{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", language='" + language + '\'' +
+                ", edition='" + edition + '\'' +
+                ", price=" + price +
+                ", author='" + author + '\'' +
+                '}';
     }
 }
